@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -17,6 +18,22 @@
         <h3>Aller vers la page 2</h3>
         <h:form>
             <h:commandButton action="page2" value="Page 2"  />
+        </h:form>
+        
+        <h1>Navigation conditionnelle</h1>
+        <hr/>
+        <h:form>
+            <h:commandLink action = "#{navigationController.goToPage}" value = "Hello page">
+                <f:param name = "pageId" value = "hello" />
+            </h:commandLink>
+            <br />
+            <h:commandLink action = "#{navigationController.goToPage}" value = "Page2">
+                <f:param name = "pageId" value = "page2" />
+            </h:commandLink>
+            <br />
+            <h:commandLink action = "#{navigationController.goToPage}" value = "Home">
+                <f:param name = "pageId" value = "home" />
+            </h:commandLink>
         </h:form>
     </h:body>
 </html>

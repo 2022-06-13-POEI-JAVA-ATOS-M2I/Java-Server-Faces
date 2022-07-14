@@ -5,13 +5,38 @@
 package com.m2i.jsf.lession;
 
 import javax.faces.bean.ManagedBean;
-
+import javax.faces.bean.ManagedProperty;
 
 @ManagedBean(name = "navigationController", eager = true)
 public class NavigationController {
 
-   public String moveToHello() {
-       return "hello";
-   }
-    
+    @ManagedProperty(value = "#{param.pageId}")
+    private String pageId;
+
+    public String moveToHello() {
+        return "hello";
+    }
+
+    public String goToPage() {
+        if (pageId == null) {
+            return "home";
+        }
+
+        if (pageId.equals("hello")) {
+            return "hello";
+        } else if (pageId.equals("page2")) {
+            return "page2";
+        }
+
+        return "home";
+    }
+
+    public String getPageId() {
+        return pageId;
+    }
+
+    public void setPageId(String pageId) {
+        this.pageId = pageId;
+    }
+
 }
