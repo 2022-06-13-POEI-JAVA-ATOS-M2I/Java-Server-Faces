@@ -11,14 +11,13 @@
         
         <h3>Aller vers la page hello (ManagedBean)</h3>
         <h:form>
-            <h:commandButton action="hello" value="Page hello"  />
+            <h:commandButton action="#{navigationController.moveToHello}" value="Go to hello page"  />
         </h:form>
         
         <h3>Aller vers la page 2</h3>
         <h:form>
             <h:commandButton action="page2" value="Page 2"  />
         </h:form>
-        
     </h:body>
 </html>
 
