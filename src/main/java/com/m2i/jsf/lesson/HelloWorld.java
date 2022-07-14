@@ -1,4 +1,4 @@
-package com.m2i.jsf.lession;
+package com.m2i.jsf.lesson;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;

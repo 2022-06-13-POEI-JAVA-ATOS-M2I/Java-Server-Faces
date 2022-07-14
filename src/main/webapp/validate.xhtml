@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Validation nouvel adhérent</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <fieldset>
+                <legend>Validation</legend>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Nom  "/>
+                    <h:outputLabel value="#{adherentData.adherent.nom}"/>
+                    <h:outputLabel value="Prenom  "/>
+                    <h:outputLabel value="#{adherentData.adherent.prenom}"/>
+                    <h:outputLabel value="Date de naissance "/>
+                    <h:outputLabel value="#{adherentData.adherent.dateNaissance}"/>
+                    <h:outputLabel value="Ville "/>
+                    <h:outputLabel value="#{adherentData.adherent.ville}"/>
+                    <h:outputLabel value="Sexe "/>
+                    <h:outputLabel value="#{adherentData.adherent.sexe}"/>
+                    <h:outputLabel value="Loisir"/>
+                    <h:outputLabel value="#{adherentData.adherent.loisir}"/>
+                    <h:commandButton value="Save" action="#{adherentData.onSave()}"/>
+                    <h:commandButton value="Re-Saisir" action="inscription?faces-redirect=true" />
+                </h:panelGrid>
+            </fieldset>
+        </h:form>
+    </h:body>
+</html>
+

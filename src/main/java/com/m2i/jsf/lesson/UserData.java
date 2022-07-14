@@ -1,4 +1,4 @@
-package com.m2i.jsf.lession;
+package com.m2i.jsf.lesson;
 
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
