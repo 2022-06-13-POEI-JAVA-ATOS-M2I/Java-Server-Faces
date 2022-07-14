@@ -8,12 +8,14 @@
     </h:head>
     <h:body>
         <ui:composition template = "templates/common.xhtml">
+            <ui:param name = "templateParam" value = "Second page param" />
+            
             <ui:define name = "header">
                 <h2>Page2 header</h2>
-            </ui:define>			
+            </ui:define>		
 
             <ui:define name = "content">
-                <h2>Page2 content</h2>
+                <h2>Page2 content </h2>
                 <h:link value = "Back To Home" outcome = "home" />
             </ui:define> 
 

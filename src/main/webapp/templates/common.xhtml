@@ -8,9 +8,13 @@
         <title>Template JSF</title>
     </h:head>
     <h:body> 
+        <h2>#{templateParam}</h2>
+        
         <div style = "border-width:2px; border-color:green; border-style:solid;">
             <ui:insert name = "header" >
-                <ui:include src = "/templates/header.xhtml" />
+                <ui:include src = "/templates/header.xhtml">
+                    <ui:param name = "title" value = "Header avec param" />
+                </ui:include>
             </ui:insert> 
         </div>
         <br/>
