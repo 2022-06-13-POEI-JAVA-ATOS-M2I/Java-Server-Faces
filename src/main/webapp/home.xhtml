@@ -9,17 +9,17 @@
     <h:body>
         <h1>Navigation implicite</h1>
         <hr/>
-        
+
         <h3>Aller vers la page hello (ManagedBean)</h3>
         <h:form>
             <h:commandButton action="#{navigationController.moveToHello}" value="Go to hello page"  />
         </h:form>
-        
+
         <h3>Aller vers la page 2</h3>
         <h:form>
             <h:commandButton action="page2" value="Page 2"  />
         </h:form>
-        
+
         <h1>Navigation conditionnelle</h1>
         <hr/>
         <h:form>
@@ -35,6 +35,20 @@
                 <f:param name = "pageId" value = "home" />
             </h:commandLink>
         </h:form>
+
+        <h1>Forward vs Redirection</h1>
+        <hr/>
+
+        <h3>Forward</h3>
+        <h:form>
+            <h:commandButton action="hello" value="Forward to hello page"  />
+        </h:form>
+
+        <h3>Redirect</h3>
+        <h:form>
+            <h:commandButton action="hello?faces-redirect=true" value="Redirect to hello page"  />
+        </h:form>
+
     </h:body>
 </html>
 
