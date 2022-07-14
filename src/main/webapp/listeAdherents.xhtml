@@ -55,14 +55,26 @@
                     </f:facet>
                     <h:outputText value="#{item.sexe}"/>
                 </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText  value="Modifier"/>
+                    </f:facet>
+                    <h:commandButton action="#{adherentData.onSelect(item.id)}" value="Modifier" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText  value="Supprimer"/>
+                    </f:facet>
+                    <h:commandButton  actionListener="#{adherentData.onDelete(item.id)}" value="Supprimer" />
+                </h:column>
             </h:dataTable>
-            
+
             <h3>Ajouter un adhérent</h3>
             <hr/>
             <h:commandButton value="Inscription" action="inscription?faces-redirect=true" />
         </h:form>
-        
-        
+
+
     </h:body>
 </html>
 

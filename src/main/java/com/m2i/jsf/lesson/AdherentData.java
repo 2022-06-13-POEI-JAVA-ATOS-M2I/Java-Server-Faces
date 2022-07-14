@@ -20,10 +20,6 @@ public class AdherentData implements Serializable {
         adherents = new ArrayList<>();
     }
     
-    public AdherentData(Adherent adherent) {
-        this.adherent = adherent;
-    }
-
     public Adherent getAdherent() {
         return adherent;
     }
@@ -40,14 +36,42 @@ public class AdherentData implements Serializable {
         this.adherents = adherents;
     }
     
+    public Adherent getAdherentById(int id) {
+         for (Adherent a : adherents) {
+            if (id == adherent.getId()){
+                return a;
+            }
+        }
+        
+         return null;
+    }
+  
+    
     public String onCreate() {
         return "validate";
     }
     
     public String onSave() {
+        adherent.setId(adherents.size());
         adherents.add(adherent);
         adherent = new Adherent();
         return "listeAdherents";
     }
     
+    public void onDelete(int id) {
+        Adherent toDelete = getAdherentById(id);
+        
+        if (toDelete != null) {
+            adherents.remove(toDelete);
+        }
+    }
+    
+    public String onSelect(int id) {
+        adherent = getAdherentById(id);       
+        return "update";
+    }
+    
+    public String onUpdate() {
+        return "listeAdherents";
+    }
 }
