@@ -11,6 +11,11 @@ import javax.faces.bean.ManagedBean;
 @SessionScoped
 public class UserData implements Serializable {
 
+    private String name;
+    private String department;
+    private int age;
+    private double salary;
+    
     private static final List<Employee> employees = new ArrayList<>(Arrays.asList(
             new Employee("John", "Marketing", 30, 2000.00),
             new Employee("Robert", "Marketing", 35, 3000.00),
@@ -23,4 +28,42 @@ public class UserData implements Serializable {
         return employees;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public String addEmployee() {		 
+      Employee employee = new Employee(name, department, age, salary);
+      employees.add(employee);
+      return null;
+   }
+    
 }

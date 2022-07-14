@@ -37,6 +37,32 @@
                         #{employee.salary}
                 </h:column>
             </h:dataTable>
+
+            <h3>Add Employee</h3>
+            <hr/>
+
+            <table>
+                <tr>
+                    <td>Name :</td>
+                    <td><h:inputText size = "10" value = "#{userData.name}" /></td>
+                </tr>       
+                <tr>
+                    <td>Department :</td>
+                    <td><h:inputText size = "20" value = "#{userData.department}" /></td>
+                </tr>          
+                <tr>
+                    <td>Age :</td>
+                    <td><h:inputText size = "5" value = "#{userData.age}" /></td>
+                </tr>          
+                <tr>
+                    <td>Salary :</td>
+                    <td><h:inputText size = "5" value = "#{userData.salary}" /></td>
+                </tr>          
+                <tr>
+                    <td> </td>
+                    <td><h:commandButton value = "Add Employee" action = "#{userData.addEmployee}" /></td>
+                </tr>
+            </table>	  
         </h:form>
     </h:body>
 </html>
