@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>DeezHotels</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    <p:panelGrid columns="2">
+                        Simple Gestion <br></br>et Localisation  des hôtels
+                        <p:clock autoSync="true"/>
+                    </p:panelGrid>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south"  size="45" style="text-align: center" closable="true" collapsible="true">
+                    <p:outputLabel value="App de gestion d'hotels" /> 
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="240" header="Menu" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Map">
+                            <p:menuitem value="Localisation des hôtels"  outcome="map"/>
+                        </p:submenu>
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <h:form>
+                        <p:fieldset legend="Ajouter Hôtel">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel value="Nom :"/>
+                                <p:inputText value="#{hotelBean.hotel.nom}" />
+                                <p:outputLabel value="Latitude :"/>
+                                <p:inputText value="#{hotelBean.hotel.latitude}" />
+                                <p:outputLabel value="Longitude :"/>
+                                <p:inputText value="#{hotelBean.hotel.longitude}" />
+                                <p:outputLabel value="Adresse :"/>
+                                <p:inputTextarea  rows="3" cols="23" value="#{hotelBean.hotel.adresse}" />
+                                <p:outputLabel value="Star :"/>
+                                <p:rating value="#{hotelBean.hotel.star}" />
+                                <p:commandButton action="#{hotelBean.onCreate()}" value="Ajouter" update=":f1:data"/>
+                            </p:panelGrid>
+                        </p:fieldset>
+                    </h:form>
+                    <f:view>
+                        <h:form id ="f1">
+                            <p:fieldset legend="Liste des hôtels">
+                                <p:dataTable id="data" value="#{hotelBean.hotels}" var="item">
+                                    <p:column filterBy="#{item.nom}">
+                                        <f:facet name="header">
+                                            <h:outputText value="Nom"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.nom}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Latitude"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.latitude}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Longitude"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.longitude}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Adresse"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.adresse}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Star"/>
+                                        </f:facet>
+                                        <p:rating value="#{item.star}" cancel="false" readonly="true"/>
+                                    </p:column>
+                                </p:dataTable>
+                            </p:fieldset>
+                        </h:form>
+                    </f:view>
+                </p:layoutUnit>
+            </p:layout>
+        </h:body>
+    </f:view>
+</html>
